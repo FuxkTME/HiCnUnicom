@@ -15,9 +15,8 @@ jobs:
         persist-credentials: false
     - name: GitHub Repo Sync
       uses: repo-sync/github-sync@v2.3.0
-      env:
-         GITHUB_TOKEN: ${{ secrets.PAT }}
       with:
         source_repo: "https://github.com/hzys/HiCnUnicom.git"
         source_branch: "master"
         destination_branch: "master"
+        github_token: ${{ secrets.PAT }}
