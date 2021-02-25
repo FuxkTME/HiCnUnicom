@@ -13,10 +13,14 @@ jobs:
   run-it:
     runs-on: ubuntu-latest
     name: 签到
-    #if: github.event.repository.owner.id == github.event.sender.id
+    if: github.event.repository.owner.id == github.event.sender.id
     steps:
         - name: Checkout codes
           uses: actions/checkout@v2
+          with:
+            repository: ${{ github.repository }}
+            ref: 'master'
+            token: ${{ secrets.PAT }}
           
         - name: 运行时间
           run: |
